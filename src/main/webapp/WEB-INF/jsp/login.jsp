@@ -19,68 +19,41 @@
 		<div class="panel-group">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h2> Cadastramento de candidatos</h2>
+					<h2> Sistema de Recrutamento</h2>
 				</div>
 				
 				<div class="panel-body">
 					<div class="btn-group">
 						<form action="/">
-							<button type="submit" class="btn btn-link">Home</button>
+							<button type="submit" class="btn btn-link">Novo Usuário</button>
 						</form>
 					</div>
 				</div>
 			</div>
 	</div>
-	
 	<c:if test="${not empty mensagem}">
 			<div class="alert alert-warning">
-			  <strong>Algo deu errado. Tente novamente!</strong>${mensagem}
+			  <strong>Não foi possível atende a sua solicitação!</strong> ${msg}
 			</div>
 		</c:if>
+	
+		<form action="/usuario/login" method="post">
 		
-		<form action="/candidato/incluir" method="post">
-			
 		    <div class="form-group" style='background-color:lightgreen'>		
-			<label>Informe o candidato</label>
-			<input type="text" name="nome" class="form-control">
+			<label>Informe o seu email:</label>
+			<input type="email" class="form-control" name="email">
+			</div>
+			
+			<div class="form-group" style='background-color:lightgreen'>		
+			<label>Informe a sua senha</label>
+			<input type="password" class="form-control" name="senha">
 			</div>
 			
 			
-			<button type="submit">Gravar</button>
-		
-		</form>
+			<button type="submit">Login</button>
+			</form>
 		 	
-		
-		
-		<c:if test="${not empty lista}">
-		
-  		<h2>Listagem de candidatos </h2>
-  			          
-  		<table class="table">
-    	<thead>
-      	<tr>
-	        <th style='background-color:lightgreen'>Nome</th>
-	        <th style='background-color:lightblue'></th>
-	        <th style='background-color:lightpink'></th>
-	      </tr>
-	    </thead>
-	    <tbody>
-	      <c:forEach var="c" items="${lista}">
-	      <tr>
-	        <td>${c.nome}</td>
-	        <td><a href="/candidato/${c.id}/excluir">excluir</a></td>
-	      </tr>
-	      </c:forEach>
-	    </tbody>
-	  </table>
-	  </c:if>
-	  
-	  <c:if test="${empty lista}">
-	  	<h2>Nenhum candidato cadastrado !!!</h2>
-	  </c:if>
-	  
 	</div>
-</div>
 		
 </body>
 </html>

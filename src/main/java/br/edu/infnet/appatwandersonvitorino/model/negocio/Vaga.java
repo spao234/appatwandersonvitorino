@@ -1,9 +1,13 @@
 package br.edu.infnet.appatwandersonvitorino.model.negocio;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,20 +19,38 @@ public class Vaga {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String descricao;
+	@OneToOne (cascade = CascadeType.DETACH)
+	@JoinColumn(name = "idCandidato")
+	private Candidato candidato;
+	@ManyToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;
 	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getVaga() {
+	public Candidato getCandidato() {
+		return candidato;
+	}
+	public void setCandidato(Candidato candidato) {
+		this.candidato = candidato;
+	}
+	public String getDescricao() {
 		return descricao;
 	}
-	public void setVaga(String descricao) {
+	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
+
 	
 
 }

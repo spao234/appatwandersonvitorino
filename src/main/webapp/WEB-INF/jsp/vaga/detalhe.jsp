@@ -31,12 +31,40 @@
 				</div>
 			</div>
 	</div>
+	
+	<c:if test="${not empty mensagem}">
+			<div class="alert alert-warning">
+			  <strong>Algo deu errado. Tente novamente!</strong>${mensagem}
+			</div>
+		</c:if>
 		
 		<form action="/vaga/incluir" method="post">
+		
+			<div class="form-group" style='background-color:lightgreen'>		
+			<label>Informe o Usuário </label>
+			<select class="form-control" name="usuario.id">
+			
+				<c:forEach var="c" items="{$candidatos}">
+					<option value="${u.id}}">${u.nome} | ${u.email}</option>
+				</c:forEach>
+				
+			</select > 
+			</div>
 			
 		    <div class="form-group" style='background-color:lightgreen'>		
 			<label>Informe a vaga</label>
-			<input type="text" class="form-control" name="vaga">
+			<input type="text" class="form-control" name="descricao">
+			</div>
+			
+			<div class="form-group" style='background-color:lightgreen'>		
+			<label>Informe o Candidato</label>
+			<select class="form-control" name="candidato.id">
+			
+				<c:forEach var="c" items="{$candidatos}">
+					<option value="${c.id}}">${c.nome}</option>
+				</c:forEach>
+				
+			</select > 
 			</div>
 			
 			
@@ -46,30 +74,31 @@
 		 	
 		
 		
-		<c:if test="${not empty usuarios}">
+		<c:if test="${not empty lista}">
 		
   		<h2>Listagem de usuários </h2>
   			          
-  		<table class="table">
+  		<table class="table table-striped">
     	<thead>
       	<tr>
-	        <th style='background-color:lightgreen'>Nome</th>
-	        <th style='background-color:lightblue'></th>
-	        <th style='background-color:lightpink'></th>
+	        <th style='background-color:lightgreen'>Vaga</th>
+	        <th style='background-color:lightblue'>Candidato</th>
+	        <th style='background-color:lightpink'>Usuario<th>
 	      </tr>
 	    </thead>
 	    <tbody>
-	      <c:forEach var="s" items="${lista}">
+	      <c:forEach var="v" items="${lista}">
 	      <tr>
-	        <td>${s.nome}</td>
-	        <td><a href="/vaga/${s.id}/excluir">excluir</a></td>
+	        <td>${v.descricao}</td>
+	        <td>${v.candidato.nome}</td>
+	        <td><a href="/vaga/${v.id}/excluir">excluir</a></td>
 	      </tr>
 	      </c:forEach>
 	    </tbody>
 	  </table>
 	  </c:if>
 	  
-	  <c:if test="${empty usuarios}">
+	  <c:if test="${empty lista}">
 	  	<h2>Nenhuma vaga cadastrada !!!</h2>
 	  </c:if>
 	  
