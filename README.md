@@ -1,3 +1,3 @@
 # appatwandersonvitorino
 
-Trabalho de Conclusão JAVA WEB
+Trabalho de conclusão do curso de JAVA WEB
