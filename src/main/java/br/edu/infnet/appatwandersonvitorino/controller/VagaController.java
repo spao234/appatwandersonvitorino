@@ -40,7 +40,7 @@ public class VagaController {
 	public String incluir(Vaga vaga, @SessionAttribute("user") Usuario usuario) {
 		
 		vaga.setUsuario(usuario);
-		
+		System.out.println(vaga.getDescricao() + " - " + vaga.getCandidato().getId() );
 		vagaService.incluir(vaga);
 		
 		return "redirect:/vaga";

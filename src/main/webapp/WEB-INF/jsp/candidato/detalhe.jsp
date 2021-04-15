@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>TP3 Java WEB</title>
+<title>Sistema de Recrutamento</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,7 +24,7 @@
 				
 				<div class="panel-body">
 					<div class="btn-group">
-						<form action="/">
+						<form action="/home">
 							<button type="submit" class="btn btn-link">Home</button>
 						</form>
 					</div>
@@ -41,8 +41,18 @@
 		<form action="/candidato/incluir" method="post">
 			
 		    <div class="form-group" style='background-color:lightgreen'>		
-			<label>Informe o candidato</label>
-			<input type="text" name="nome" class="form-control">
+				<label>Informe o seu nome:</label>
+				<input type="text" name="nome" class="form-control">
+			</div>
+			
+			 <div class="form-group" style='background-color:lightpink'>		
+				<label>Informe o seu email:</label>
+				<input type="text" name="nome" class="form-control">
+			</div>
+			
+			 <div class="form-group" style='background-color:lightyellow'>		
+				<label>Informe o telefone:</label>
+				<input type="text" name="nome" class="form-control">
 			</div>
 			
 			
@@ -60,8 +70,8 @@
     	<thead>
       	<tr>
 	        <th style='background-color:lightgreen'>Nome</th>
-	        <th style='background-color:lightblue'></th>
-	        <th style='background-color:lightpink'></th>
+	        <th style='background-color:lightblue'>Email</th>
+	        <th style='background-color:lightpink'>Telefone</th>
 	      </tr>
 	    </thead>
 	    <tbody>
@@ -72,6 +82,14 @@
 	      </tr>
 	      </c:forEach>
 	    </tbody>
+	    	<c:forEach var="u" items="${lista}">
+	      	<tr>
+	        	<td>${c.nome}</td>
+	        	<td>${c.email}</td>
+            	<td>${c.telefone}</td>
+	        	<td><a href="/candidato/${c.id}/excluir">excluir</a></td>
+	      	</tr>
+	      </c:forEach>
 	  </table>
 	  </c:if>
 	  
@@ -80,7 +98,6 @@
 	  </c:if>
 	  
 	</div>
-</div>
 		
 </body>
 </html>

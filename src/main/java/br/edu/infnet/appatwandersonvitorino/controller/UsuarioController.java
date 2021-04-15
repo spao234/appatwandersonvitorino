@@ -42,6 +42,14 @@ public class UsuarioController {
 		return "usuario/detalhe";
 	}
 	
+	//@GetMapping(value = "/usuario")
+	//public String showUsuario(Model model) {
+		
+		//model.addAttribute("lista", usuarioService.obterLista());
+		
+		//return "usuario/detalhe";
+	//}
+	
 	@PostMapping(value = "/usuario/incluir")
 	public String incluir(Usuario usuario) {
 		
@@ -56,4 +64,18 @@ public class UsuarioController {
 		
 		return "redirect:/usuario";
 	}
-}
+}	
+	
+	//@GetMapping(value = "/usuario/{id}/excluir")
+	//public String excluir(Model model, @PathVariable Integer id) {
+		
+		//try {
+			//usuarioService.excluir(id);			
+		//} catch (Exception e) {
+			//model.addAttribute("mensagem", "Não foi possivel excluir o usuário");
+			//return showUsuario(model);
+		//}
+		
+		//return "redirect:/usuario";
+	//}
+	

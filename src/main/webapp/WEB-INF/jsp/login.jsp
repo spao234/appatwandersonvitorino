@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>TP3 Java WEB</title>
+<title>Sistema de Recrutamento</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,12 +19,12 @@
 		<div class="panel-group">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h2> Sistema de Recrutamento</h2>
+					<h2>Sistema de Recrutamento</h2>
 				</div>
 				
 				<div class="panel-body">
 					<div class="btn-group">
-						<form action="/">
+						<form action="/usuario">
 							<button type="submit" class="btn btn-link">Novo Usuário</button>
 						</form>
 					</div>

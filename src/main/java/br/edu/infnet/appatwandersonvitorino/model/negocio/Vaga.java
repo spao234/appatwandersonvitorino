@@ -12,13 +12,15 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "TVaga")
-
 public class Vaga {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	private String nome;
 	private String descricao;
+	private String observacao;
+	
 	@OneToOne (cascade = CascadeType.DETACH)
 	@JoinColumn(name = "idCandidato")
 	private Candidato candidato;
@@ -49,6 +51,20 @@ public class Vaga {
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getObservacao() {
+		return observacao;
+	}
+
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
 	}
 
 	

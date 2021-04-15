@@ -11,8 +11,8 @@
 	<groupId>br.edu</groupId>
 	<artifactId>apptp3wandersonvitorino</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>apptp3wandersonvitorino</name>
-	<description>Projeto TP3 Java WEB</description>
+	<name>appatwandersonvitorino</name>
+	<description>Projeto Recrutamento</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
